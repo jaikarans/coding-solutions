@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 
 class Solution {
     public int[] smallerNumbersThanCurrent(int[] nums) {
-        int[] ans = new int[nums.length];
+        // int[] ans = new int[nums.length];
         
         // number is Key and Vector of numbers index is Value
         SortedMap<Integer, Vector<Integer>> map = new TreeMap<Integer, Vector<Integer>>();
@@ -30,13 +30,13 @@ class Solution {
             Entry e = (Entry)it.next();
             Vector<Integer> vec = (Vector<Integer>) e.getValue();
             for (int i=0; i<vec.size(); i++){
-                ans[vec.get(i)]  = count;
+                nums[vec.get(i)]  = count;
             }
             count += vec.size();
         }
         
         
-        return ans;
+        return nums;
 
     }
     
