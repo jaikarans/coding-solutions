@@ -1,23 +1,24 @@
 class Solution {
-    public int search(int[] nums, int target) {.
-        int l,h;
-        int p;
-        l = 0;
-        h = nums.length-1;
-        p = nums.length/2;
+    public int search(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length-1;
+        int p ;
         
-        while ( l <= h ) {
-            if (nums[p] == target)
+        while(r >= l) {
+            p = l + (r-l)/2;
+            //System.out.println(l + " " + r + " " + p);
+            if (nums[p] == target) {
                 return p;
-            else if (nums[p] > target) {
-                h = p-1;
-                p = (h-l)/2;
+            }
+            else if (nums[p] < target) {
+                l = p + 1;
             }
             else {
-                l = p+1;
-                p = l+((h-l)/2);
+                r = p - 1;
             }
+            
         }
+        
         return -1;
     }
 }
